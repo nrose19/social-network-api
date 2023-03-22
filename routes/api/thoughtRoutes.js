@@ -17,14 +17,14 @@ router
 
 // getting, updating, and deleting thoughts by id
 router
-.route('/:id')
+.route('/:thoughtId')
 .get(getSingleThought)
 .put(updateThought)
 .delete(deleteThought)
 
 // create reaction
 router
-.route('/:thoughtId/reactions')
+.route('/:thoughtId/reactions/')
 .post(createReaction)
 
 // delete reaction

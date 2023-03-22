@@ -17,19 +17,15 @@ router
 
 // updating user information through Id
 router
-.route('/:id')
+.route('/:userId')
 .get(getSingleUser)
 .put(updateUser)
 .delete(deleteUser)
 
-// adding a friend
+// adding/deleting a friend
 router
-.route('/:thoughtId/reactions')
+.route('/:userId/friends/:friendId')
 .post(addFriend)
-
-// removing a friend
-router
-.route('/:thoughtId/reactions/:reactionId')
 .delete(removeFriend)
 
 module.exports = router;

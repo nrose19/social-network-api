@@ -63,7 +63,7 @@ addFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $addToSet: { friends: req.params.friendId } },
-      { runValidators: true, new: true }
+      { new: true }
     )
     .then((user) =>
         !user
@@ -76,9 +76,9 @@ addFriend(req, res) {
 // remove a friend :(
 removeFriend(req, res) {
     User.findOneAndUpdate(
-      { _id: req.params.thoughtId },
-      { $pull: { friends: {friendId: req.params.friendId} } },
-      { runValidators: true, new: true }
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendId } },
+      { new: true }
     )
     .then((user) =>
         !user
